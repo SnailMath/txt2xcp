@@ -1,6 +1,5 @@
 # txt2xcp
-_click on "txt2xcp Latest" on the right side of the screen to download the executable. -->_
-
+Download: https://github.com/SnailMath/txt2xcp/releases
 
 This is a simple program to convert (text-) files to .xcp files for the calculator Classpad II (aka fx-cp 400).
 
