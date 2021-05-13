@@ -16,7 +16,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#define tohex(x) ((x)<=9?(x)+'0':(x)-10+'a') //convert from a number (0-15) to the ascii hex representation.
+#define tohex(x) ((x)<= 9 ?(x)+'0':(x)-10+'a') //convert from a number (0-15) to the ascii hex representation.
+#define tobin(x) ((x)<='9'?(x)-'0':(x)+10-'a') //convert from a ascii hex nibble to the binary number.
 #define info(...) if(verbose)printf(__VA_ARGS__); //print this, only if verbose.
 #define BIG_ENDIAN 1
 #define LITTLE_ENDIAN 0
@@ -128,7 +129,7 @@ Tip: You can drag and drop a file into this program.\n", argv[0], argv[0], argv[
 		else if (argv[i][0] == '-' && argv[i][1] == 'p' && argv[i][2] == 0) {
 			i++; //go to the next arg
 			if (i==argc){ fprintf(stderr,"ERROR: You are stupid. If you say -p then you have to tell me a characer to use!\n");return -1;}
-			padchar = argv[i][0];
+			padchar = (tobin(argv[i][0]) << 4) +  tobin(argv[i][1]);
 		}
 		// -n
 		else if (argv[i][0] == '-' && argv[i][1] == 'n' && argv[i][2] == 0) {
